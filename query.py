@@ -40,10 +40,10 @@ def get_html(url='',refer_url=''):
     r.encoding = 'utf-8'
     return r.text
     
-def my_company_abormal():
-    html = get_html(url = 'http://cri.gz.gov.cn/Detail?zch=50A22333659FA44651F172941DE608AA&state=009001')
+def my_company_abormal(url):
+    html = get_html(url)
     #<title>xx科技有限公司 - 广州市商事主体信息公示平台</title>
-    #<span id="spanMc" class="title-cnt">广州壹玮信科技有限公司</span><br />
+    #<span id="spanMc" class="title-cnt">xx科技有限公司</span><br />
     #company = re.findall(r'<title>(.*?)</title>',hmtl,re.S|re.M)
     company = re.findall(r'<span id="spanMc" class="title-cnt">(.*?)</span><br />',html,re.S|re.M)
     company_name = ''
@@ -66,15 +66,13 @@ def my_company_abormal():
         print('%s--企业注册信息正常'%company_name)
     return abnormal
 
-def my_fsbd_info(current='xx科技有限公司'):
+def my_fsbd_info(url='',refer_url='',current='xx科技有限公司'):
     """
     获取发输变电注册信息
     """
-    refer_url = 'http://jzsc.mohurd.gov.cn/asite/jsbpp/index'
-    url = 'http://jzsc.mohurd.gov.cn/dataservice/query/staff/staffDetail/001708050329583149' #具体查询
     html = get_html(url,refer_url)
     abnormal = False
-    #<dd><span>注册类别：</span><b>注册电气工程师（发输变电）</b></dd>
+    #<dd><span>注册类别：</span><b>注册xx</b></dd>
     type = re.findall(r'<dd><span>注册类别：</span><b>(.*?)</b></dd>',html,re.S|re.M)
     if type:
         type = type[0]
