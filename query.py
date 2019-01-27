@@ -109,13 +109,13 @@ my_fsbd_info(d['certificate']['url'],d['certificate']['refer'],d['certificate'][
 j = {
     'company':
         {
-        'url': 'http://cri.gz.gov.cn/Detail?zch=50A22333659FA44651F172941DE608AA&state=009001',
+        'url': 'http://cri.gz.gov.cn/Detail?zch=50A22333659FA44651F172941DE608AA&state=009001AA',
         'refer': 'http://cri.gz.gov.cn',
         'keyword': '异常' 
         },
     'certificate':
         {
-        'url': 'http://jzsc.mohurd.gov.cn/dataservice/query/staff/staffDetail/001708050329583149',
+        'url': 'http://jzsc.mohurd.gov.cn/dataservice/query/staff/staffDetail/001708050329583149AA',
         'refer': 'http://jzsc.mohurd.gov.cn/asite/jsbpp/index',
         'company': '科技有限公司' 
         }  
