@@ -31,8 +31,6 @@ def encodeURL(url):
     return quote(url, safe=string.printable).replace(' ', '%20')
 
 def get_html(url='',refer_url=''):
-    #url = 'http://cri.gz.gov.cn/Detail?zch=50A22333659FA44651F172941DE608AA&state=009001'  #壹玮信
-    #url = 'http://cri.gz.gov.cn/Detail?zch=EEF66BC84556E42D85A399223BCCA0F4&state=009003'
     proxy = None
     params = {}
     headers = {
@@ -44,7 +42,7 @@ def get_html(url='',refer_url=''):
     
 def my_company_abormal():
     html = get_html(url = 'http://cri.gz.gov.cn/Detail?zch=50A22333659FA44651F172941DE608AA&state=009001')
-    #<title>广州壹玮信科技有限公司 - 广州市商事主体信息公示平台</title>
+    #<title>xx科技有限公司 - 广州市商事主体信息公示平台</title>
     #<span id="spanMc" class="title-cnt">广州壹玮信科技有限公司</span><br />
     #company = re.findall(r'<title>(.*?)</title>',hmtl,re.S|re.M)
     company = re.findall(r'<span id="spanMc" class="title-cnt">(.*?)</span><br />',html,re.S|re.M)
@@ -68,7 +66,7 @@ def my_company_abormal():
         print('%s--企业注册信息正常'%company_name)
     return abnormal
 
-def my_fsbd_info(current='上海甲由电力科技有限公司'):
+def my_fsbd_info(current='xx科技有限公司'):
     """
     获取发输变电注册信息
     """
