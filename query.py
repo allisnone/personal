@@ -40,7 +40,7 @@ def get_html(url='',refer_url=''):
     r.encoding = 'utf-8'
     return r.text
     
-def my_company_abormal(url):
+def my_company_abormal(url,keyword='异常'):
     html = get_html(url)
     #<title>xx科技有限公司 - 广州市商事主体信息公示平台</title>
     #<span id="spanMc" class="title-cnt">xx科技有限公司</span><br />
@@ -58,7 +58,7 @@ def my_company_abormal(url):
     abnormal = False
     if abnormal_all:
         for li in abnormal_all:
-            if '异常' in li:
+            if keyword in li:
                 print('%s: '%company_name,li)
                 abnormal =True
                 break
@@ -102,9 +102,9 @@ def my_fsbd_info(url='',refer_url='',current='xx科技有限公司'):
         print('获取注册信息失败！！！')
     return abnormal
 
-#d = read_json('config.json')
-#my_company_abormal()
-#my_fsbd_info()
+d = read_json('config.json')
+my_company_abormal(d['company']['url'],d['company']['keyword'])
+my_fsbd_info(d['certificate']['url'],d['certificate']['refer'],d['certificate']['company'])
 """
 j = {
     'company':
